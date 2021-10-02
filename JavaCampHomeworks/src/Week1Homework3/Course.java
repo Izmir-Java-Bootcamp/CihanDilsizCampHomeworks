@@ -27,14 +27,14 @@ public class Course {
 	}
 	public boolean addStudent(Student student) {
 		if(getNumberOfStudent()==this.capacity) {
-			System.out.println("\nYeterli kapasite yok öðrenci eklenemedi");
+			System.out.println("\nYeterli kapasite yok Ã¶Ã°renci eklenemedi");
 			return false;
 		}
 		if(getNumberOfStudent()>0) {
 			System.out.println();
 			for(int i=0;i<getNumberOfStudent();i++) {
 				if(students[i].getId()==student.getId()) {
-					System.out.println("Ayný Öðrenci Ýki kez eklenemez");
+					System.out.println("AynÃ½ Ã–Ã°renci Ãki kez eklenemez");
 					return false;
 				}
 			}
@@ -48,8 +48,6 @@ public class Course {
 	
 	public boolean dropStudent(Student student) {
 		int index=-1;
-		Student[] studentsSub=new Student[this.capacity];
-		
 		for(int i=0;i<getNumberOfStudent();i++) {
 			if(students[i].getId()==student.getId()) {
 				index=i;
@@ -58,22 +56,15 @@ public class Course {
 		}
 		
 		if(index<0) {
-			System.out.println("Böyle bir öðrenci bulunmadý");
+			System.out.println("BÃ¶yle bir Ã¶ÄŸrenci bulunmadÄ±");
 				return false;
 		}
-		else if(index==0) {
-			for(int i=1;i<getNumberOfStudent();i++)
-			studentsSub[i-1]=students[i];
-		}
 		else {
-			for(int i=0;i<index;i++) {
-				studentsSub[i]=students[i];
-			}
+			 
 			for(int i=index+1;i<getNumberOfStudent() ;i++) {
-				studentsSub[i]=students[i];
+				students[i-1]=students[i];
 			}
 		}
-		students=studentsSub;
 		this.numberOfStudent--;
 		return true;	
 	}
@@ -111,9 +102,9 @@ public class Course {
 	}
 	public void list() {
 		if(this.getNumberOfStudent()==0) {
-			System.out.println("Bu sýnýfta hiçbir öðrenci bulunmuyor");
+			System.out.println("Bu sÃ½nÃ½fta hiÃ§bir Ã¶Ã°renci bulunmuyor");
 		}else {
-			System.out.println(this.name+" Dersi Öðrencileri");
+			System.out.println(this.name+" Dersi Ã–Ã°rencileri");
 			for( int i=0;i<getNumberOfStudent();i++) {
 				System.out.println(this.students[i].toString());
 			}    
