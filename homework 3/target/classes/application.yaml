@@ -1,0 +1,36 @@
+spring :
+  profiles:
+    active:prod
+
+---
+
+spring:
+  congif:
+    activate:
+      on-profile:prod
+ 
+delivery:
+  fee:5
+  fee-limit:100
+
+discount:
+  percentage:20
+
+credit-cart:
+  commission:8   
+---  
+
+spring:
+  congif:
+    activate:
+      on-profile:dev
+ 
+delivery:
+  fee:2
+  fee-limit:50
+
+discount:
+  percentage:15
+
+credit-cart:
+  commission:2  
